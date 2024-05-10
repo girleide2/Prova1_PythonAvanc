@@ -1,3 +1,5 @@
 from django.contrib import admin
+from tygra_app.models import Promocao, Produto
 
-# Register your models here.
+admin.site.register(Promocao)
+admin.site.register(Produto)
