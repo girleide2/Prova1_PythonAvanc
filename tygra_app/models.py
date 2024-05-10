@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Promocao(models.Model):
     data_inicio = models.CharField(max_length=50)
@@ -20,3 +18,12 @@ class Produto(models.Model):
     data_add = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.text
+    
+class Detalhe(models.Model):
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    detalhe = models.TextField()
+    data_add = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.detalhe
+    
