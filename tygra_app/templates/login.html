@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+{%block titulo%}
+Login
+{%endblock titulo%}
+
+{% block content %}
+
+<div class="card m-8" style="margin-top: 20px;">
+    <div class="card-header text-center">
+        <h2>Login</h2>
+    </div>
+    <div class="card-body">
+        <form method="post" actiopn="{% url 'login' %}" class="d-flex flex-column align-content-around m-2 gap-2">
+            {% csrf_token %}
+            {{form_login.username}}
+            {{form_login.password}}
+            <div class="d-flex justify-content-around">
+                <button type="submit" class="btn px-5 py-2" style=" color: #330019; border: solid 2px #330019;">Login</button>
+                <a class="btn px-5 py-2" href="{%url 'cadastro'%}" style=" color: white; background-color:  #660005;"> Registre-se</a>
+                <a class="btn px-5 py-2" href="{%url 'remover'%}" style=" color: white; background-color: #330019;"> Remover Conta </a>
+                <a class="btn px-5 py-2" href="{%url 'home'%}" style=" color: white; background-color: #330019;"> Cancelar </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content%}
